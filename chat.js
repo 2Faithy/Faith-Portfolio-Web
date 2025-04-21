@@ -1,117 +1,15 @@
-/* Initialize Particles.js */
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 80,
-            "density": {
-                "enable": true,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": "#00adb5"
-        },
-        "shape": {
-            "type": "circle",
-            "stroke": {
-                "width": 0,
-                "color": "#fff"
-            }
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-                "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#00adb5",
-            "opacity": 0.4,
-            "width": 1
-        },
-        "move": {
-            "enable": true,
-            "speed": 6,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-            }
-        }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "grab"
-            },
-            "onclick": {
-                "enable": true,
-                "mode": "push"
-            },
-            "resize": true
-        },
-        "modes": {
-            "grab": {
-                "distance": 140,
-                "line_linked": {
-                    "opacity": 1
-                }
-            },
-            "bubble": {
-                "distance": 400,
-                "size": 40,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
-            },
-            "repulse": {
-                "distance": 200,
-                "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
-            }
-        }
-    },
-    "retina_detect": true
-});
 
 function toggleNavbar() {
     const navLinks = document.getElementById("nav-links");
     navLinks.classList.toggle("active");
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const typedTextElement = document.getElementById("typed-text");
     const textArray = [
         "Web Developer.",
-        "Advanced Front-end Developer.",
+        "Front-end Developer.",
         "Software Engineer.",
         "Mobile App developer.",
     ];
@@ -203,7 +101,7 @@ function generateResponse(userInput) {
         return "Hello! I'm Nexi, your AI assistant. I can help you explore Faith's portfolio, guide you through software development processes, debug your code, and provide insights into AI and tech best practices. Feel free to ask me anything!";
     }
 
-    if (userInput.includes("about me") || userInput.includes("who am i")) {
+    if (userInput.includes("about me") || userInput.includes("about faith")) {
         return "Faith is a passionate software engineer, Web and mobile app developer and advanced frontend devloper with a focus on clean code, problem-solving, and innovative solutions. She has a strong foundation in software development principles and continuously strive to learn and adapt to new technologies. Her goal is to create meaningful, user-centric applications that solve real-world problems.";
     }
 
@@ -262,34 +160,75 @@ function generateResponse(userInput) {
     if (userInput.includes("team collaboration") || userInput.includes("software teams")) {
         return "Effective collaboration in a software team requires clear communication, regular meetings, and efficient code review practices. I ensure everyone is aligned on goals and timelines to keep projects on track.";
     }
+    
+    if (userInput.includes("thank you") || userInput.includes("thanks")) {
+        return "You're welcome. Let me know if you need more assistance."
+    }
+
+    if (userInput.includes("how are you") || userInput.includes ("how are you doing")) {
+        return "I'm faeel great. Thanks for asking! How can I help you?"
+    }
 
     return "Sorry, I didn't quite catch that. Can you rephrase or ask something else?";
 }
 
 
-    // Get the form and success message elements
-    const form = document.getElementById('contact-form');
-    const successMessage = document.getElementById('success-message');
+// Open modal function
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "flex"; // Show modal with flex
+}
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();  // Prevent the default form submission (page redirect)
+// Close modal function
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none"; // Hide modal
+}
 
-        const formData = new FormData(form);  // Gather form data
-
-        // Send the form data using Fetch API
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            // Display the success message
-            successMessage.style.display = 'block';
-
-            // Clear the form fields
-            form.reset();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+// Close modal when clicking outside of it (optional)
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(function(modal) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     });
+}
+
+let slideIndex = 1;
+
+// Show initial slide
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+    showSlides(slideIndex, modalId);
+}
+
+// Close the modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+// Next/previous controls
+function plusSlides(n, modalId) {
+    slideIndex += n;
+    showSlides(slideIndex, modalId);
+}
+
+// Thumbnail image controls
+function currentSlide(n, modalId) {
+    slideIndex = n;
+    showSlides(slideIndex, modalId);
+}
+
+// Function to display the slides
+function showSlides(n, modalId) {
+    let slides = document.getElementsByClassName(modalId + "-slide");
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+}

@@ -15,15 +15,13 @@
     <title>FAITH ONWUEMERI - TECH EXPERT</title>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
-
 
 <!-- Navbar -->
 <nav id="navbar">
     <div class="logo-hamburger">
         <div class="hamburger" onclick="toggleNavbar()">☰</div>
         <div class="name-logo">
+                <i class="fas fa-gem"></i>
             <span class="first-name">FAITH</span>
             <span class="last-name">ONWUEMERI</span>
         </div>
@@ -39,23 +37,36 @@
     </div>
 </nav>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <!-- Replace this placeholder with your actual profile image -->
-        <img src="images/img4.jpeg" alt="Faith's Profile Picture">
-        
-        <!-- Heading and Subheading -->
-         <h1>I'm Faith</h1>
-         <p id="typed-text"></p> <!-- Typing effect will happen here -->
+<script>
+    const navLinks = document.getElementById('nav-links');
+    function toggleNavbar() {
+        navLinks.classList.toggle('open');
+    }
+</script>
 
-        <!-- Social Media Icons -->
-        <div class="social-icons">
-            <a href="https://wa.me/message/GJ55UC5R57RTA1"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/faithonwuemeri?igsh=MW1ubnQ0cWZrZ3gzeQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/faith-onwuemeri-207512303/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/2Faithy"><i class="fab fa-github"></i></a>
+<!-- Hero Section -->
+<div class="hero">
+    <video autoplay loop muted class="hero-video">
+        <source src="videos/hero_video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-content">
+        <div class="profile-image-container">
+            <img src="images/img4.jpeg" alt="Faith's Profile Picture" class="profile-image">
+            <div class="image-overlay"></div> </div>
+
+        <h1 class="hero-title">I Am<a> Faith</a></h1>
+        <p id="typed-text" class="hero-subtitle"></p> <div class="social-icons">
+            <a href="https://wa.me/message/GJ55UC5R57RTA1" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/faithonwuemeri?igsh=MW1ubnQ0cWZrZ3gzeQ%3D%3D&utm_source=qr" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/faith-onwuemeri-207512303/" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/2Faithy" class="social-icon github"><i class="fab fa-github"></i></a>
         </div>
     </div>
+</div>
+
+<div class="custom-cursor"></div>
 
     <!-- Chatbox container -->
 <div class="chatbox" id="chatbox">
@@ -256,7 +267,6 @@
 <section class="portfolio-section text-center" id="portfolio-section">
     <h2>My <span>Portfolio</span></h2>
     <div class="portfolio-grid">
-        <!-- Portfolio Item 1 -->
         <div class="portfolio-item" onclick="openModal('modal1')">
             <div class="overlay">
                 <h3>QueueXpress</h3>
@@ -266,7 +276,6 @@
             <img src="images/QueueXpress 1.png" alt="QueueXpress">
         </div>
 
-        <!-- Portfolio Item 2 -->
         <div class="portfolio-item" onclick="openModal('modal2')">
             <div class="overlay">
                 <h3>ShopSphere</h3>
@@ -276,7 +285,6 @@
             <img src="images/Shopshere 1.png" alt="ShopSphere">
         </div>
 
-        <!-- Portfolio Item 3 -->
         <div class="portfolio-item" onclick="openModal('modal3')">
             <div class="overlay">
                 <h3>Zyloconnect</h3>
@@ -285,92 +293,52 @@
             </div>
             <img src="images/Zyloconnect 1.png" alt="Project Three">
         </div>
+    </div>
 </section>
 
-<!-- Modals -->
-<!-- Modal 1 -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         <h2>QueueXpress</h2>
-        <p>Brand, Design</p>
-        <div class="slideshow-container">
-            <div class="mySlides modal1-slide">
-                <img src="images/QueueXpress 1.png" alt="Project One Image 1" class="modal-image">
-            </div>
-            <div class="mySlides modal1-slide">
-                <img src="images/QueueXpress 2.png" alt="Project One Image 2" class="modal-image">
-            </div>
-            <div class="mySlides modal1-slide">
-                <img src="images/QueueXpress 3.png" alt="Project One Image 3" class="modal-image">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal1')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal1')">&#10095;</a>
-        </div>
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(1, 'modal1')"></span>
-            <span class="dot" onclick="currentSlide(2, 'modal1')"></span>
-            <span class="dot" onclick="currentSlide(3, 'modal1')"></span>
+        <p>Brand, Design <br>TAP THE PICTURE BELOW TO WATCH THE VIDEO</p>
+        <div class="video-container">
+            <video controls class="modal-video">
+                <source src="videos/queuexpress.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <p>QueueExpress is a comprehensive queue management system designed to streamline and optimize the process of managing queues for both customers and admins. Customers can join a queue, track their position, and receive real-time updates, reducing wait times and improving customer satisfaction. For admins, QueueExpress provides an intuitive interface to create, manage, and monitor multiple queues.</p>
     </div>
 </div>
 
-<!-- Modal 2 -->
 <div id="modal2" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         <h2>ShopSphere</h2>
-        <p>Your one-stop shop</p>
-        <div class="slideshow-container">
-            <div class="mySlides modal1-slide">
-                <img src="images/img1.jpg" alt="ShopSphere Image 1" class="modal-image">
-            </div>
-            <div class="mySlides modal1-slide">
-                <img src="images/img2.jpg" alt="ShopSphere Image 2" class="modal-image">
-            </div>
-            <div class="mySlides modal1-slide">
-                <img src="images/img3.jpeg" alt="ShopSphere Image 3" class="modal-image">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
-        </div>
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(1, 'modal2')"></span>
-            <span class="dot" onclick="currentSlide(2, 'modal2')"></span>
-            <span class="dot" onclick="currentSlide(3, 'modal2')"></span>
+        <p>Your one-stop shop <br>TAP THE PICTURE BELOW TO WATCH THE VIDEO</p>
+        <div class="video-container">
+            <video controls class="modal-video">
+                <source src="videos/shopsphere.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <p>ShopSphere is a dynamic and user-centric e-commerce platform designed to offer a seamless online shopping experience. With a modern, responsive design, it caters to both buyers and sellers by providing a feature-rich and intuitive environment. Built with a focus on speed, security, and user experience, ShopSphere leverages the latest web technologies to ensure efficient product browsing, smooth transactions, and personalized customer interactions.
-            ShopSphere stands out as a flexible and customizable platform that offers both consumers and administrators a well-rounded e-commerce experience. Whether you're looking to browse the latest products, track your orders, or manage your online store, ShopSphere provides all the tools needed for a smooth and efficient shopping journey. 
-            
+            ShopSphere stands out as a flexible and customizable platform that offers both consumers and administrators a well-rounded e-commerce experience. Whether you're looking to browse the latest products, track your orders, or manage your online store, ShopSphere provides all the tools needed for a smooth and efficient shopping journey.
             With its focus on ease of use, rich features, and scalability, ShopSphere is ideal for businesses looking to create an engaging and secure online shopping experience for their customers.
-            </p>
+        </p>
     </div>
 </div>
 
-<!-- Modal 3 -->
 <div id="modal3" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         <h2>ZyloConnect</h2>
-        <p>A Social Media app</p>
-        <div class="slideshow-container">
-            <div class="mySlides modal1-slide">
-                <img src="images/img1.jpg" alt="Project Three Image 1" class="modal-image">
-            </div>
-            <div class="mySlides modal1-slide">
-                <img src="images/img2.jpg" alt="Project Three Image 2" class="modal-image">
-            </div>
-            <div class="mySlides modal1-slide">
-                <img src="images/img3.jpeg" alt="Project Three Image 3" class="modal-image">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal3')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal3')">&#10095;</a>
-        </div>
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(1, 'modal3')"></span>
-            <span class="dot" onclick="currentSlide(2, 'modal3')"></span>
-            <span class="dot" onclick="currentSlide(3, 'modal3')"></span>
+        <p>A Social Media app <br>TAP THE PICTURE BELOW TO WATCH THE VIDEO</p>
+        <div class="video-container">
+            <video controls class="modal-video">
+                <source src="videos/zyloconnect.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <p>Zyloconnect is a social media app focused on facilitating user interactions around incident reporting, similar to the Citizens Reporting app. It allows users to report and discuss various incidents such as accidents, crimes, or emergencies within their community. The app includes features for real-time notifications, post sharing, and incident tracking, creating a platform for citizens to stay informed and engaged. With a strong emphasis on user participation, Zyloconnext helps communities collaborate and ensure a safer environment through shared information.</p>
     </div>
@@ -442,17 +410,40 @@
 <section id="education" class="education-section">
     <h2>Education</h2>
     <div class="education-item">
-      <h3>Miva Open University</h3>
-      <p><strong>Program:</strong> Bachelor of Science in Software Engineering</p>
-      <p><strong>Start Date:</strong> January 2025</p>
-      <p><strong>Status:</strong> Ongoing</p>
+        <h3><i class="fas fa-university"></i> Miva Open University</h3>
+        <p><strong>Program:</strong> Bachelor of Science in Software Engineering</p>
+        <p><strong>Start Date:</strong> January 2025</p>
+        <p><strong>Status:</strong> Ongoing</p>
     </div>
     <div class="education-item">
-      <h3>Bincom Academy</h3>
-      <p><strong>Program:</strong>Advanced Front-end Developer</p>
-      <p><strong>Year:</strong>September 2024 - January 2025</p>
+        <h3><i class="fas fa-graduation-cap"></i> Bincom Academy</h3>
+        <p><strong>Program:</strong>Advanced Front-end Developer</p>
+        <p><strong>Year:</strong>September 2024 - January 2025</p>
     </div>
-  </section>  
+</section>
+
+<script>
+    const experienceItems = document.querySelectorAll('.experience-item');
+const educationItems = document.querySelectorAll('.education-item');
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.2 // Trigger when 20% of the element is visible
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated');
+      observer.unobserve(entry.target); // Stop observing once animated
+    }
+  });
+}, observerOptions);
+
+experienceItems.forEach(item => observer.observe(item));
+educationItems.forEach(item => observer.observe(item));
+</script>
 
 <section class="testimonials-section" id="testimonials-section">
     <div class="text-center">
